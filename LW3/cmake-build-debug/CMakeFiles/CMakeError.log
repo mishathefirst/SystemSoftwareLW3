@@ -1,0 +1,45 @@
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/misha/Документы/LW3TPP/spo_lab3-master/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_6c7c0/fast && /usr/bin/make  -f CMakeFiles/cmTC_6c7c0.dir/build.make CMakeFiles/cmTC_6c7c0.dir/build
+make[1]: вход в каталог «/home/misha/Документы/LW3TPP/spo_lab3-master/cmake-build-debug/CMakeFiles/CMakeTmp»
+Building C object CMakeFiles/cmTC_6c7c0.dir/src.c.o
+/usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD  -std=gnu99 -o CMakeFiles/cmTC_6c7c0.dir/src.c.o -c /home/misha/Документы/LW3TPP/spo_lab3-master/cmake-build-debug/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_6c7c0
+/home/misha/Загрузки/clion-2021.1/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6c7c0.dir/link.txt --verbose=1
+/usr/bin/cc CMakeFiles/cmTC_6c7c0.dir/src.c.o -o cmTC_6c7c0 
+CMakeFiles/cmTC_6c7c0.dir/src.c.o: In function `main':
+src.c:(.text+0x2f): undefined reference to `pthread_create'
+src.c:(.text+0x3b): undefined reference to `pthread_detach'
+src.c:(.text+0x47): undefined reference to `pthread_cancel'
+src.c:(.text+0x58): undefined reference to `pthread_join'
+src.c:(.text+0x6c): undefined reference to `pthread_atfork'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_6c7c0.dir/build.make:105: ошибка выполнения рецепта для цели «cmTC_6c7c0»
+make[1]: *** [cmTC_6c7c0] Ошибка 1
+make[1]: выход из каталога «/home/misha/Документы/LW3TPP/spo_lab3-master/cmake-build-debug/CMakeFiles/CMakeTmp»
+Makefile:140: ошибка выполнения рецепта для цели «cmTC_6c7c0/fast»
+make: *** [cmTC_6c7c0/fast] Ошибка 2
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+

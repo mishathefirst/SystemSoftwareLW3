@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/misha/Документы/LW3TPP/spo_lab3-master/client.c
+ncurses.h
+-
+common.h
+/home/misha/Документы/LW3TPP/spo_lab3-master/common.h
+
+/home/misha/Документы/LW3TPP/spo_lab3-master/common.h
+stdio.h
+-
+netdb.h
+-
+netinet/in.h
+-
+unistd.h
+-
+stdlib.h
+-
+string.h
+-
+sys/socket.h
+-
+sys/types.h
+-
+arpa/inet.h
+-
+pthread.h
+-
+time.h
+-
+stdatomic.h
+-
+
